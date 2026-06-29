@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kyle Stephenson | Sports Business Student &amp; Aspiring NIL Agent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --dark: #0a0a0f;
+      --dark-2: #111118;
+      --dark-3: #18181f;
+      --dark-4: #22222c;
+      --border: rgba(201,168,76,0.2);
+      --text: #e8e8f0;
+      --muted: #7a7a90;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 6%;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--dark) !important;
+      padding: 0.55rem 1.3rem;
+      border-radius: 4px;
+      font-weight: 700 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--gold-light) !important; color: var(--dark) !important; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 10rem 6% 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(201,168,76,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(201,168,76,0.04) 0%, transparent 60%);
+    }
+
+    .hero-grid-lines {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 800px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 0.4rem 1rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .hero-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--white) 0%, var(--gold-light) 60%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-title {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--muted);
+      font-weight: 400;
+      margin-bottom: 2rem;
+      max-width: 550px;
+    }
+
+    .hero-title span { color: var(--gold); font-weight: 600; }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gold);
+      color: var(--dark);
+      padding: 0.9rem 2rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.9rem 2rem;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 6%;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .hero-scroll::before {
+      content: '';
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, transparent, var(--gold));
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollLine {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 6%; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      letter-spacing: 0.03em;
+      line-height: 1;
+      margin-bottom: 1rem;
+      color: var(--white);
+    }
+
+    .section-sub {
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 3rem;
+      font-size: 1rem;
+    }
+
+    .divider {
+      width: 48px;
+      height: 3px;
+      background: var(--gold);
+      margin: 1rem 0 2.5rem;
+    }
+
+    /* ── METRICS ── */
+    #metrics { background: var(--dark-2); }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 3rem;
+    }
+
+    .metric-card {
+      background: var(--dark-3);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .metric-card:hover { background: var(--dark-4); }
+
+    .metric-value {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      letter-spacing: 0.02em;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .metric-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .metric-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+      opacity: 0.7;
+    }
+
+    /* Proof of Work cards */
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .proof-card {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .proof-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .proof-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+    .proof-card:hover::before { opacity: 1; }
+
+    .proof-tag {
+      display: inline-block;
+      background: rgba(201,168,76,0.12);
+      color: var(--gold);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+    }
+
+    .proof-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .proof-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .proof-card .proof-result {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--dark); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-photo-wrap {
+      position: relative;
+    }
+
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      display: block;
+    }
+
+    .about-photo-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .about-photo-placeholder svg {
+      width: 60px;
+      height: 60px;
+      opacity: 0.3;
+    }
+
+    .about-photo-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      right: -12px;
+      width: 80%;
+      height: 80%;
+      border: 2px solid var(--gold);
+      border-radius: 8px;
+      z-index: -1;
+      opacity: 0.3;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .about-text p strong { color: var(--text); }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .highlight-item::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── ATHLETES ── */
+    #athletes { background: var(--dark-2); }
+
+    .athletes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .athlete-card {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s;
+      cursor: pointer;
+      position: relative;
+    }
+    .athlete-card:hover { transform: translateY(-3px); border-color: var(--gold); }
+
+    .athlete-photo {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background-color: var(--dark-4);
+      background-size: cover;
+      background-position: top center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .athlete-photo::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 50%;
+      background: linear-gradient(to top, var(--dark-3), transparent);
+    }
+
+    .athlete-view {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: var(--gold);
+      color: var(--dark);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-align: center;
+      padding: 0.75rem;
+      transform: translateY(100%);
+      transition: transform 0.25s ease;
+    }
+    .athlete-card:hover .athlete-view { transform: translateY(0); }
+
+    /* ── ONE-PAGER MODAL ── */
+    .pager-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(5,5,9,0.88);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 3vh 3vw;
+    }
+    .pager-modal.open { display: flex; animation: fadeModal 0.2s ease; }
+
+    @keyframes fadeModal { from { opacity: 0; } to { opacity: 1; } }
+
+    .pager-modal-inner {
+      background: var(--dark-2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      width: 100%;
+      max-width: 720px;
+      height: 94vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    }
+
+    .pager-modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .pager-modal-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+      color: var(--gold);
+    }
+
+    .pager-modal-actions { display: flex; align-items: center; gap: 0.75rem; }
+
+    .pager-open-new {
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .pager-open-new:hover { color: var(--gold); }
+
+    .pager-close {
+      background: var(--dark-4);
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 32px; height: 32px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .pager-close:hover { border-color: var(--gold); color: var(--gold); }
+
+    .pager-frame {
+      flex: 1;
+      width: 100%;
+      border: none;
+      background: #fff;
+    }
+
+    .athlete-sport-badge {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      background: var(--gold);
+      color: var(--dark);
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 3px;
+      z-index: 1;
+    }
+
+    .athlete-info {
+      padding: 1.25rem;
+    }
+
+    .athlete-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+
+    .athlete-detail {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .athlete-deal {
+      font-size: 0.8rem;
+      color: var(--gold);
+      font-weight: 600;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .athlete-add {
+      border: 2px dashed var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .athlete-add:hover { border-color: var(--gold); color: var(--gold); }
+    .athlete-add span { font-size: 1.5rem; }
+
+    /* ── RESUME ── */
+    #resume { background: var(--dark); }
+
+    .resume-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .resume-col h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 1.5rem;
+      padding-bottom: 2rem;
+      border-left: 1px solid var(--border);
+    }
+
+    .timeline-item:last-child { border-left-color: transparent; }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -4px; top: 4px;
+      width: 7px; height: 7px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    .timeline-date {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-role {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.15rem;
+    }
+
+    .timeline-org {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .skills-section { margin-top: 3rem; }
+
+    .skills-section h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .skill-tag {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.4rem 0.9rem;
+      border-radius: 4px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .skill-tag:hover { border-color: var(--gold); color: var(--gold); }
+
+    .resume-download {
+      margin-top: 3rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--dark-2); }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-info p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .contact-link:hover { color: var(--gold); }
+
+    .contact-link-icon {
+      width: 36px; height: 36px;
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.85rem 1rem;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--gold); }
+
+    .form-group select option { background: var(--dark-3); }
+
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .form-submit {
+      background: var(--gold);
+      color: var(--dark);
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      align-self: flex-start;
+    }
+    .form-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      padding: 2rem 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .about-grid,
+      .resume-layout,
+      .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .about-photo-wrap { max-width: 320px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 1rem 5%; }
+      .nav-links { display: none; }
+      section { padding: 4rem 5%; }
+      .hero-ctas { flex-direction: column; }
+      footer { flex-direction: column; text-align: center; }
+    }
+
+    /* ── FADE IN ANIMATION ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">KS</a>
+    <ul class="nav-links">
+      <li><a href="#metrics">Highlights</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#athletes">Athletes</a></li>
+      <li><a href="#resume">Experience</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid-lines"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Sports Business Student · Aspiring NIL Agent</div>
+      <h1 class="hero-name">Kyle<br>Stephenson</h1>
+      <p class="hero-title">
+        A University of Oregon sports business student working across <span>NIL, athlete marketing, and pro sports</span>
+        — building toward a career in athlete representation.
+      </p>
+      <div class="hero-ctas">
+        <a href="#athletes" class="btn-primary" onclick="goToAthletes(event)">Athletes I've Worked With →</a>
+        <a href="#contact" class="btn-outline">Get In Touch</a>
+      </div>
+    </div>
+    <div class="hero-scroll">Scroll to explore</div>
+  </section>
+
+  <!-- METRICS / PROOF OF WORK -->
+  <section id="metrics">
+    <div class="fade-in">
+      <p class="section-label">Experience & Involvement</p>
+      <h2 class="section-title">By The Numbers</h2>
+      <div class="divider"></div>
+      <p class="section-sub">A snapshot of my hands-on involvement across NIL, athlete marketing, and the sports industry as a student.</p>
+    </div>
+
+    <div class="metrics-grid fade-in">
+      <div class="metric-card">
+        <div class="metric-value">5</div>
+        <div class="metric-label">Athletes Supported</div>
+        <div class="metric-note">Through Oregon Accelerator</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">13K+</div>
+        <div class="metric-label">Combined Athlete Following</div>
+        <div class="metric-note">Across Instagram & TikTok</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">6</div>
+        <div class="metric-label">Brand Deals & Campaigns</div>
+        <div class="metric-note">Gorjana · Dagne Dover · Hawaiian Island Grill · Texas Roadhouse</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">$1K+</div>
+        <div class="metric-label">Brand Deal Value Negotiated</div>
+        <div class="metric-note">Across athlete partnerships</div>
+      </div>
+    </div>
+
+    <!-- Highlights Cards -->
+    <div style="margin-top: 4rem;" class="fade-in">
+      <p class="section-label">Notable Work</p>
+      <h2 class="section-title" style="font-size: clamp(1.8rem, 3vw, 2.5rem);">Work Highlights</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="proof-grid fade-in">
+      <div class="proof-card">
+        <span class="proof-tag">NIL & Athlete Marketing</span>
+        <h3>Oregon Accelerator</h3>
+        <p>As Head of Brand Relations and Account Manager at a student-run sports marketing agency, I help collegiate athletes build their brands and connect with national companies — supporting campaigns from outreach through content delivery.</p>
+        <div class="proof-result">↑ Leading account managers & pitching brand partnerships</div>
+      </div>
+      <div class="proof-card">
+        <span class="proof-tag">Athlete Representation (Intern)</span>
+        <h3>Slice Sports Management</h3>
+        <p>As a College Football Agent Intern, I get hands-on exposure to the representation process — supporting recruiting outreach, transfer portal navigation, and brand development for collegiate football players.</p>
+        <div class="proof-result">↑ Learning representation directly inside an agency</div>
+      </div>
+      <div class="proof-card">
+        <span class="proof-tag">Pro Sports Experience</span>
+        <h3>LA Chargers & NY Jets</h3>
+        <p>Behind-the-scenes experience with two NFL organizations — equipment operations and game-day readiness with the Chargers, and talent scouting through the Jets' Phil Savage Scout School.</p>
+        <div class="proof-result">↑ Front-office and game-day perspective on pro sports</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-photo-wrap fade-in">
+        <img class="about-photo" src="about/kyle-headshot.jpg" alt="Kyle Stephenson"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <div class="about-photo-placeholder" style="display:none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          <span>Save your photo to about/kyle-headshot.jpg</span>
+        </div>
+      </div>
+      <div class="about-text fade-in">
+        <p class="section-label">About Me</p>
+        <h2 class="section-title">Who I Am</h2>
+        <div class="divider"></div>
+        <p>
+          I'm <strong>Kyle Stephenson</strong> — a Sports Business student at the University of Oregon's Lundquist College of Business and an aspiring sports agent with hands-on experience across athlete representation, NIL marketing, and professional sports operations.
+        </p>
+        <p>
+          As <strong>Head of Brand Relations and Account Manager at Oregon Accelerator</strong>, a student-run sports marketing agency, I help lead campaign execution and connect national brands with collegiate athletes for NIL partnerships. As a <strong>College Football Agent Intern with Slice Sports Management</strong>, I'm getting hands-on exposure to athlete representation — supporting recruiting, the transfer portal, brand development, and partnership opportunities for collegiate football players.
+        </p>
+        <p>
+          My experience spans the full sports ecosystem: from the NFL sidelines as an Equipment Intern with the <strong>Los Angeles Chargers</strong> and a talent scout with the <strong>New York Jets'</strong> Phil Savage Scout School, to the governance side as Secretary of the Board of Directors for The Duck Store. I'm driven by one goal — empowering athletes to maximize their name, image, and likeness, and building the relationships that shape careers on and off the field.
+        </p>
+        <div class="about-highlights">
+          <div class="highlight-item">NIL Strategy &amp; Deal-Making</div>
+          <div class="highlight-item">Athlete Representation</div>
+          <div class="highlight-item">Brand Partnerships</div>
+          <div class="highlight-item">Campaign Management</div>
+          <div class="highlight-item">NFL Operations Experience</div>
+          <div class="highlight-item">Talent Scouting</div>
+          <div class="highlight-item">Recruiting &amp; Transfer Portal</div>
+          <div class="highlight-item">Sports Business — Univ. of Oregon</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ATHLETES -->
+  <section id="athletes">
+    <div class="fade-in">
+      <p class="section-label">Athletes</p>
+      <h2 class="section-title">Athletes I've Worked With</h2>
+      <div class="divider"></div>
+      <p class="section-sub">Athletes I've supported on NIL and brand partnerships through Oregon Accelerator. Click any athlete to view their one-pager media kit.</p>
+    </div>
+    <div class="athletes-grid fade-in">
+
+      <!-- AJ SLOJKOWSKI -->
+      <div class="athlete-card" onclick="openPager('aj-slojkowski', 'AJ Slojkowski')">
+        <div class="athlete-photo" style="background-image:url('athletes/aj-slojkowski.png')">
+          <div class="athlete-sport-badge">Beach Volleyball</div>
+        </div>
+        <div class="athlete-info">
+          <div class="athlete-name">AJ Slojkowski</div>
+          <div class="athlete-detail">D1 Beach Volleyball · Public Relations · El Dorado Hills, CA</div>
+          <div class="athlete-deal">2,032 IG followers · 9.3% engagement rate</div>
+        </div>
+        <div class="athlete-view">View One-Pager →</div>
+      </div>
+
+      <!-- MARKUS DIXON -->
+      <div class="athlete-card" onclick="openPager('markus-dixon', 'Markus Dixon')">
+        <div class="athlete-photo" style="background-image:url('athletes/markus-dixon.png')">
+          <div class="athlete-sport-badge">Football</div>
+        </div>
+        <div class="athlete-info">
+          <div class="athlete-name">Markus Dixon</div>
+          <div class="athlete-detail">College Football · Journalism · Philadelphia, PA</div>
+          <div class="athlete-deal">5,428 IG followers · 29.06% engagement rate</div>
+        </div>
+        <div class="athlete-view">View One-Pager →</div>
+      </div>
+
+      <!-- LYRIC DAVIS -->
+      <div class="athlete-card" onclick="openPager('lyric-davis', 'Lyric Davis')">
+        <div class="athlete-photo" style="background-image:url('athletes/lyric-davis.png')">
+          <div class="athlete-sport-badge">Acrobatics &amp; Tumbling</div>
+        </div>
+        <div class="athlete-info">
+          <div class="athlete-name">Lyric Davis</div>
+          <div class="athlete-detail">Acrobatics &amp; Tumbling · Psychology · Vancouver, WA</div>
+          <div class="athlete-deal">1,033 IG followers · 89.7k views (30 days)</div>
+        </div>
+        <div class="athlete-view">View One-Pager →</div>
+      </div>
+
+      <!-- ELON BUTLER -->
+      <div class="athlete-card" onclick="openPager('elon-butler', 'Elon Butler')">
+        <div class="athlete-photo" style="background-image:url('athletes/elon-butler.png')">
+          <div class="athlete-sport-badge">Softball</div>
+        </div>
+        <div class="athlete-info">
+          <div class="athlete-name">Elon Butler</div>
+          <div class="athlete-detail">Oregon Softball · Sociology · San Jose, CA</div>
+          <div class="athlete-deal">2,101 IG followers · 12,396 engagements</div>
+        </div>
+        <div class="athlete-view">View One-Pager →</div>
+      </div>
+
+      <!-- GRANT VALLEY -->
+      <div class="athlete-card" onclick="openPager('grant-valley', 'Grant Valley')">
+        <div class="athlete-photo" style="background-image:url('athletes/grant-valley.png')">
+          <div class="athlete-sport-badge">Track & Field</div>
+        </div>
+        <div class="athlete-info">
+          <div class="athlete-name">Grant Valley</div>
+          <div class="athlete-detail">Track & Field · Business Admin · Portland, OR</div>
+          <div class="athlete-deal">2.7k IG followers · 4k profile visits</div>
+        </div>
+        <div class="athlete-view">View One-Pager →</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ONE-PAGER MODAL -->
+  <div class="pager-modal" id="pagerModal" onclick="closePager(event)">
+    <div class="pager-modal-inner">
+      <div class="pager-modal-head">
+        <span class="pager-modal-title" id="pagerTitle">Athlete One-Pager</span>
+        <div class="pager-modal-actions">
+          <a class="pager-open-new" id="pagerOpenNew" href="#" target="_blank">Open in New Tab ↗</a>
+          <button class="pager-close" onclick="closePager(event, true)">✕</button>
+        </div>
+      </div>
+      <iframe class="pager-frame" id="pagerFrame" src="" title="One-Pager"></iframe>
+    </div>
+  </div>
+
+  <!-- RESUME / EXPERIENCE -->
+  <section id="resume">
+    <div class="fade-in">
+      <p class="section-label">Background</p>
+      <h2 class="section-title">Experience & Education</h2>
+      <div class="divider"></div>
+      <p class="section-sub">The experiences shaping my path toward a career in athlete representation and the NIL space.</p>
+    </div>
+
+    <div class="resume-layout fade-in">
+      <div class="resume-col">
+        <h3>Work Experience</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">Oct 2025 – Present</div>
+            <div class="timeline-role">Head of Brand Relations &amp; Account Manager</div>
+            <div class="timeline-org">Oregon Accelerator · Eugene, OR</div>
+            <div class="timeline-desc">Lead account managers through large-scale NIL campaign execution, develop and pitch partnership proposals to nationally recognized brands, and broker deals between brands and collegiate athletes — managing each campaign from contract signing through content delivery.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">May 2026 – Present</div>
+            <div class="timeline-role">College Football Agent Intern</div>
+            <div class="timeline-org">Slice Sports Management</div>
+            <div class="timeline-desc">Support athlete representation for collegiate football players — recruiting outreach, transfer portal support, brand development, and partnership opportunities.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">Summer 2026</div>
+            <div class="timeline-role">Wealth Planning &amp; Settlement Intern</div>
+            <div class="timeline-org">Strazzeri Mancini LLP · San Diego, CA</div>
+            <div class="timeline-desc">Gaining exposure to advanced estate planning, wealth strategy, and the legal and financial structures that protect generational wealth for high-net-worth clients.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">Sep – Oct 2025</div>
+            <div class="timeline-role">Scout Intern — Phil Savage Scout School</div>
+            <div class="timeline-org">New York Jets</div>
+            <div class="timeline-desc">Athlete analysis and talent scouting, evaluating prospects through an NFL front-office lens.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">Jul – Aug 2025</div>
+            <div class="timeline-role">Equipment Department Intern</div>
+            <div class="timeline-org">Los Angeles Chargers</div>
+            <div class="timeline-desc">Worked behind the scenes with the Equipment Department on daily operations and game-day readiness for an NFL organization.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">May 2025 – Present</div>
+            <div class="timeline-role">Secretary, Board of Directors</div>
+            <div class="timeline-org">The Duck Store · Eugene, OR</div>
+            <div class="timeline-desc">Elected to the board of a not-for-profit serving the University of Oregon campus; record board decisions and support strategic planning and governance.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2020 – 2023</div>
+            <div class="timeline-role">Founder</div>
+            <div class="timeline-org">The NEST TV Live Streaming Platform · San Diego, CA</div>
+            <div class="timeline-desc">Built a first-of-its-kind high school sports live-streaming platform during COVID, allowing families and immunocompromised loved ones to virtually attend Del Norte High School sporting events.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="resume-col">
+        <h3>Education</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">2023 – 2027 (Expected)</div>
+            <div class="timeline-role">B.S. in Sports Business</div>
+            <div class="timeline-org">University of Oregon · Lundquist College of Business</div>
+            <div class="timeline-desc">Studying the business of sports — marketing, management, and the rapidly evolving NIL landscape. Secretary, Board of Directors of The Duck Store.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2019 – 2023</div>
+            <div class="timeline-role">High School Diploma</div>
+            <div class="timeline-org">Del Norte High School · San Diego, CA</div>
+            <div class="timeline-desc">Varsity Football and Varsity Lacrosse. Founded The NEST TV, a high school sports live-streaming platform.</div>
+          </div>
+        </div>
+
+        <div class="skills-section">
+          <h3>Skills & Expertise</h3>
+          <div class="skills-tags">
+            <span class="skill-tag">NIL Strategy</span>
+            <span class="skill-tag">Athlete Representation</span>
+            <span class="skill-tag">Brand Partnerships</span>
+            <span class="skill-tag">Recruiting &amp; Transfer Portal</span>
+            <span class="skill-tag">Campaign Management</span>
+            <span class="skill-tag">Client Acquisition</span>
+            <span class="skill-tag">Pitch Decks &amp; Proposals</span>
+            <span class="skill-tag">Talent Scouting</span>
+            <span class="skill-tag">Partnership Building</span>
+            <span class="skill-tag">Sports Marketing</span>
+            <span class="skill-tag">Relationship Management</span>
+            <span class="skill-tag">Brand Development</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="resume-download fade-in">
+      <a href="#" class="btn-primary">Download Full Resume ↓</a>
+      <a href="#contact" class="btn-outline">Get In Touch</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="fade-in">
+      <p class="section-label">Get In Touch</p>
+      <h2 class="section-title">Let's Connect</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="contact-layout fade-in">
+      <div class="contact-info">
+        <h3>Let's Connect.</h3>
+        <p>
+          I'm always looking to learn, collaborate, and grow in the sports business and NIL space. Whether you're an athlete, a brand, a recruiter, or someone in the industry — I'd love to connect and start a conversation.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:kyle.a.stephenson@icloud.com" class="contact-link">
+            <div class="contact-link-icon">✉</div>
+            kyle.a.stephenson@icloud.com
+          </a>
+          <a href="tel:+17608469793" class="contact-link">
+            <div class="contact-link-icon">📞</div>
+            (760) 846-9793
+          </a>
+          <a href="https://www.linkedin.com/in/kyle-stephenson-4b3a64300" class="contact-link" target="_blank">
+            <div class="contact-link-icon">in</div>
+            LinkedIn Profile
+          </a>
+          <a href="#" class="contact-link">
+            <div class="contact-link-icon">📍</div>
+            Eugene, Oregon
+          </a>
+        </div>
+      </div>
+
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="John" required />
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Smith" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="john@example.com" required />
+        </div>
+        <div class="form-group">
+          <label>I am a...</label>
+          <select>
+            <option value="">Select one</option>
+            <option>Athlete / NIL opportunity</option>
+            <option>Brand / Sponsor</option>
+            <option>Recruiter / Employer</option>
+            <option>Industry Professional</option>
+            <option>Media / Press</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Tell me a bit about yourself and what you're looking for..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Message →</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Kyle Stephenson</div>
+    <p class="footer-copy">© 2026 Kyle Stephenson. All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#athletes">Athletes</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    // Smooth scroll to athletes from hero button
+    function goToAthletes(e) {
+      e.preventDefault();
+      document.getElementById('athletes').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // One-pager modal
+    function openPager(slug, name) {
+      const modal = document.getElementById('pagerModal');
+      const frame = document.getElementById('pagerFrame');
+      const title = document.getElementById('pagerTitle');
+      const openNew = document.getElementById('pagerOpenNew');
+      const url = 'athletes/' + slug + '.pdf';
+      frame.src = url + '#view=FitH';
+      title.textContent = name + ' — One-Pager';
+      openNew.href = url;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePager(e, force) {
+      const modal = document.getElementById('pagerModal');
+      // only close when clicking the backdrop or the close button
+      if (force || e.target === modal) {
+        modal.classList.remove('open');
+        document.getElementById('pagerFrame').src = '';
+        document.body.style.overflow = '';
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closePager(null, true);
+    });
+
+    // Fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Contact form
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      btn.textContent = 'Sent! ✓';
+      btn.style.background = '#4caf7c';
+      setTimeout(() => {
+        btn.textContent = 'Send Message →';
+        btn.style.background = '';
+        e.target.reset();
+      }, 3000);
+    }
+
+    // Nav active state
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 100) current = s.id;
+      });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--gold)' : '';
+      });
+    });
+  </script>
+</body>
+</html>
