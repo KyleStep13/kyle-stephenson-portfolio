@@ -726,6 +726,24 @@
       line-height: 1.7;
     }
 
+    .timeline-award {
+      margin-top: 0.75rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .award-badge {
+      display: inline-block;
+      background: rgba(201,168,76,0.12);
+      color: var(--gold-light);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.2rem 0.7rem;
+      border-radius: 100px;
+      margin-bottom: 0.4rem;
+    }
+
     .skills-section { margin-top: 3rem; }
 
     .skills-section h3 {
@@ -1001,7 +1019,7 @@
         <div class="metric-note">Gorjana · Dagne Dover · Hawaiian Island Grill · Texas Roadhouse</div>
       </div>
       <div class="metric-card">
-        <div class="metric-value">$1K+</div>
+        <div class="metric-value">$2K+</div>
         <div class="metric-label">Brand Deal Value Negotiated</div>
         <div class="metric-note">Across athlete partnerships</div>
       </div>
@@ -1235,6 +1253,10 @@
             <div class="timeline-role">B.S. in Sports Business</div>
             <div class="timeline-org">University of Oregon · Lundquist College of Business</div>
             <div class="timeline-desc">Studying the business of sports — marketing, management, and the rapidly evolving NIL landscape. Secretary, Board of Directors of The Duck Store.</div>
+            <div class="timeline-award">
+              <span class="award-badge">🏅 Apex Academic Scholarship</span>
+              Awarded Mar 2023 to incoming students entering the University of Oregon with a 3.70/4.0+ high school GPA and maintaining a 3.0/4.0+ collegiate cumulative GPA.
+            </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-date">2019 – 2023</div>
@@ -1265,8 +1287,8 @@
     </div>
 
     <div class="resume-download fade-in">
-      <a href="#" class="btn-primary">Download Full Resume ↓</a>
-      <a href="#contact" class="btn-outline">Get In Touch</a>
+      <a href="resume/kyle-stephenson-resume.pdf" class="btn-primary" onclick="openResume(event)">View Full Resume ↗</a>
+      <a href="resume/kyle-stephenson-resume.pdf" class="btn-outline" download>Download PDF ↓</a>
     </div>
   </section>
 
@@ -1357,6 +1379,21 @@
     function goToAthletes(e) {
       e.preventDefault();
       document.getElementById('athletes').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Resume modal (reuses the one-pager modal)
+    function openResume(e) {
+      if (e) e.preventDefault();
+      const modal = document.getElementById('pagerModal');
+      const frame = document.getElementById('pagerFrame');
+      const title = document.getElementById('pagerTitle');
+      const openNew = document.getElementById('pagerOpenNew');
+      const url = 'resume/kyle-stephenson-resume.pdf';
+      frame.src = url + '#view=FitH';
+      title.textContent = 'Kyle Stephenson — Resume';
+      openNew.href = url;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
     }
 
     // One-pager modal
